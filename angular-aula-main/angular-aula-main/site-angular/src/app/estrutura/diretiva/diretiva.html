@@ -1,0 +1,13 @@
+
+<div *ngIf="mostrarMensagem">
+<ul> 
+<li *ngFor="let item of listaAluno" [ngClass]="{'isativo': item.status, 'isinativo': !item.status}" [ngStyle]="{'font-size': tamanhofont+ 'px'}">{{item.id + " " + item.nome + " " + statusshow(item.status)}}</li>
+</ul>
+
+</div>
+
+<button (click)="toggleMensagem()">Alternar Mensagem</button>
+
+<button (click)="aumentarFonte()">+</button>
+
+<button (click)="diminuirFonte()">-</button>
