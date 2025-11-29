@@ -1,0 +1,116 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+/* Css SideNav (cor da header placeholder pode mudar) */
+.sidenav-container {
+  height: 100vh;
+}
+
+/* Css das Toolbar */
+.toolbar-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #111827;
+  border-bottom: 0.5px solid;
+  border-color: #1a2235;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  z-index: 9999;
+}
+
+/* Adiciona um espaçamento para que o conteúdo da página não fique atrás da toolbar */
+.mat-sidenav-content {
+  padding-top: 56px;
+}
+
+/* Links de navegação centralizados */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex: 1;
+}
+
+.nav-link {
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Efeito de sublinhado nos botões */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #5062c6;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Estilos para o link Entrar */
+.login-button {
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: #6b4eff;
+  color: white;
+  text-transform: none;
+  text-align: center;
+  border: 2px solid #6b4eff;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.login-button:hover {
+  background-color: #543bb2;
+  border-color: #543bb2;
+}
+
+.register-button {
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #5062c6;
+  border: 2px solid #5062c6;
+  text-transform: none;
+  text-align: center;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.register-button:hover {
+  background-color: #1a2235;
+  border-color: #5062c6;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sidenav {
+    width: 100vw;
+  }
+
+  .toolbar-title {
+    font-size: 18px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+}

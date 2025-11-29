@@ -1,0 +1,107 @@
+<div class="agenda-dashboard">
+
+  <!-- Coluna do calendário -->
+  <div class="calendar-section">
+    <div class="calendar-header">
+      <button mat-icon-button (click)="previousMonth()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+
+      <h3>{{ currentMonth | date:'MMMM yyyy' | titlecase }}</h3>
+
+      <button mat-icon-button (click)="nextMonth()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+
+    <div class="calendar-grid">
+      <div class="calendar-day header" *ngFor="let h of weekDays">{{ h }}</div>
+
+      <div *ngFor="let day of days" class="calendar-day" [class.today]="isToday(day.date)"
+        [class.selected]="selectedDate.getTime() === day.date.getTime()" [class.inactive]="day.isOtherMonth"
+        (click)="selectDay(day.date)">
+        <span>{{ day.number }}</span>
+
+        <div class="event-dot" *ngIf="day.hasEvents" [style.background]="day.eventColor"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coluna da agenda (Eventos + Horários) -->
+  <div class="schedule-section">
+    <h3>Agenda - {{ selectedDate | date:'dd/MM/yyyy' }}</h3>
+
+  <div *ngIf="filteredEvents.length; else empty">
+  <div *ngFor="let e of filteredEvents" class="event-card">
+
+    <div class="event-date">
+      <strong>{{ e.date | date:'dd' }}</strong>
+      <small>{{ e.date | date:'MMM' }}</small>
+    </div>
+
+    <div class="event-info">
+      <h4>{{ e.title }}</h4>
+      <p>{{ e.time }}</p>
+
+      <!-- BOTÕES -->
+      <div class="event-actions">
+        <button class="edit-btn" (click)="remarcar(e)">Remarcar</button>
+        <button class="cancel-btn" (click)="cancelar(e)">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+    <ng-template #empty>
+      <p class="empty-text">
+        Nenhum agendamento para este dia.
+      </p>
+    </ng-template>
+
+    <!-- HORÁRIOS DISPONÍVEIS (DENTRO DA MESMA COLUNA) -->
+    <div class="slot-section" *ngIf="selectedDate">
+      <h3>Horários Disponíveis</h3>
+
+      <div class="slot-list">
+        <button *ngFor="let slot of scheduleSlots" class="slot-btn" [class.selected]="slot === selectedSlot"
+          [disabled]="horarioOcupado(slot)" (click)="selectSlot(slot)">
+          {{ slot }}
+        </button>
+
+      </div>
+
+      <!-- CARD DO HORÁRIO SELECIONADO -->
+      <div *ngIf="selectedSlot" class="slot-preview">
+        <p>
+          Horário selecionado:
+          <strong>{{ selectedSlot }}</strong>
+        </p>
+
+        <!-- SERVIÇOS -->
+        <div class="service-section">
+          <h4>Selecione o serviço:</h4>
+
+          <div class="service-list">
+            <button *ngFor="let s of services" class="service-btn" [class.selected]="selectedService?.id === s.id"
+              (click)="selectService(s)">
+              <span class="service-name">{{ s.nome }}</span>
+              <span class="service-price">R$ {{ s.preco | number:'1.2-2' }}</span>
+            </button>
+          </div>
+        </div>
+
+
+        <!-- BOTÃO DE CONFIRMAR -->
+        <button class="confirm-btn" [disabled]="!selectedService" (click)="save()">
+          Confirmar Agendamento
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

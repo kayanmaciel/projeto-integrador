@@ -1,0 +1,339 @@
+.agenda-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 8%;
+  color: #e2e8f0;
+}
+
+.calendar-section {
+  flex: 1 1 380px;
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.calendar-section h3 {
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-day {
+  background: #0f172a;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+  height: 60px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.calendar-day:hover {
+  background: #334155;
+}
+
+.calendar-day.today {
+  border: 2px solid #6b4eff;
+}
+
+.calendar-day.selected {
+  background: #6b4eff;
+  color: #fff;
+}
+
+.event-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.event-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn,
+.cancel-btn {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  border: 1px solid transparent;
+}
+
+/* REMARCAR */
+.edit-btn {
+  background: #334155;
+  color: #e2e8f0;
+  border-color: #475569;
+}
+
+.edit-btn:hover {
+  background: #475569;
+}
+
+/* CANCELAR */
+.cancel-btn {
+  background: #7f1d1d;
+  color: #fca5a5;
+  border-color: #b91c1c;
+}
+
+.cancel-btn:hover {
+  background: #991b1b;
+  color: #fff;
+}
+
+
+
+.header {
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.schedule-section {
+  flex: 1 1 400px;
+}
+
+.event-card {
+  background: #1e293b;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: 0.2s ease;
+}
+
+.event-card:hover {
+  background: #2d3a53;
+}
+
+.event-date {
+  text-align: center;
+  color: #6b4eff;
+}
+
+.event-date strong {
+  font-size: 1.5rem;
+  display: block;
+}
+
+.event-info h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.event-info p {
+  margin: 2px 0 0;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.empty-text {
+  color: #94a3b8;
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* ===== Cabeçalho com navegação entre meses ===== */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.calendar-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+/* ===== Dias de outros meses (cinza e apagado) ===== */
+.calendar-day.inactive {
+  opacity: 0.35;
+  background: #162032;
+}
+
+/* ===== Número do dia ===== */
+.calendar-day span {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+}
+
+/* ===== Ajuste para manter o layout igual da referência ===== */
+.calendar-section {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.mat-icon {
+  color: #94a3b8;
+  transition: 0.2s;
+}
+
+.mat-icon:hover {
+  color: #6b4eff;
+}
+
+/* ============================
+      SEÇÃO DE HORÁRIOS
+============================ */
+
+.slot-section {
+  margin-top: 30px;
+  padding: 20px;
+  background: #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.slot-section h3 {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+/* Lista dos horários */
+.slot-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+/* Botão do horário */
+.slot-btn {
+  padding: 10px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+  text-align: center;
+}
+
+.slot-btn:hover {
+  background: #334155;
+  border-color: #475569;
+}
+
+/* Horário selecionado */
+.slot-btn.selected {
+  background: #6b4eff;
+  color: #fff;
+  border-color: #4b33ff;
+  box-shadow: 0 0 8px rgba(107, 78, 255, 0.5);
+}
+
+/* Card do horário selecionado */
+.slot-preview {
+  margin-top: 20px;
+  padding: 20px;
+  background: #0f172a;
+  border-left: 4px solid #6b4eff;
+  border-radius: 10px;
+  color: #e2e8f0;
+}
+
+/* Título de serviço */
+.service-section h4 {
+  margin-top: 16px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+/* Lista de serviços */
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Botão de serviço */
+.service-btn {
+  padding: 10px 14px;
+  background: #1e293b;
+  border: 1px solid #344155;
+  border-radius: 8px;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-size: 0.95rem;
+  width: 130px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover padrão */
+.service-btn:hover {
+  background: #334155;
+}
+
+/* Selecionado */
+.service-btn.selected {
+  background: #6b4eff;
+  border-color: #4b33ff;
+  color: #fff;
+  box-shadow: 0 0 8px rgba(107, 78, 255, 0.5);
+}
+
+/* Nome do serviço */
+.service-name {
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+/* Preço menor e mais suave */
+.service-price {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+/* Botão confirmar */
+.confirm-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #6b4eff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.confirm-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.confirm-btn:not(:disabled):hover {
+  background: #5a3df5;
+}

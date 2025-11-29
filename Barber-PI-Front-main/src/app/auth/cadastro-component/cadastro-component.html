@@ -1,0 +1,42 @@
+<div class="login-background">
+  <div class="wave"></div>
+  <div class="wave wave2"></div>
+
+  <div class="login-container">
+    <mat-card class="login-card">
+      <h2 class="title">Criar conta</h2>
+
+      <form>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Nome completo</mat-label>
+          <input matInput type="text" placeholder="Digite seu nome completo" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="Digite seu email" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" placeholder="Crie uma senha" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Confirmar senha</mat-label>
+          <input matInput type="password" placeholder="Repita sua senha" />
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="login-button">
+          Registrar
+        
+        </button>
+      </form>
+
+      <p class="register-link">
+        Já tem uma conta?
+        <a routerLink="/auth/login">Entrar</a>
+      </p>
+    </mat-card>
+  </div>
+</div>

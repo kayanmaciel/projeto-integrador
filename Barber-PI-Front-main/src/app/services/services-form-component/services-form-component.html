@@ -1,0 +1,86 @@
+<div class="services-background">
+  <div class="services-wave"></div>
+  <div class="services-wave wave2"></div>
+
+  <div class="services-container">
+    <mat-card class="services-card">
+      <h2 class="services-title">Cadastrar Serviço</h2>
+
+      <form>
+
+        <!-- Nome -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Nome do serviço</mat-label>
+          <input 
+            matInput
+            [(ngModel)]="service.nome"
+            name="nome"
+            placeholder="Ex: Corte Masculino"
+          />
+        </mat-form-field>
+
+        <!-- Descrição -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Descrição</mat-label>
+          <input
+            matInput
+            placeholder="Descrição do serviço"
+            [(ngModel)]="service.descricao"
+            name="descricao"
+          />
+        </mat-form-field>
+
+        <!-- LINHA COM 2 COLUNAS (Preço + Duração) -->
+        <div class="two-cols">
+
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Preço</mat-label>
+            <input
+              matInput
+              type="number"
+              [(ngModel)]="service.preco"
+              name="preco"
+              placeholder="Ex: 35.00"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Duração (minutos)</mat-label>
+            <input
+              matInput
+              type="number"
+              [(ngModel)]="service.duracao"
+              name="duracao"
+              placeholder="Ex: 30"
+            />
+          </mat-form-field>
+
+        </div>
+
+        <!-- Categoria / Tipo -->
+        <mat-form-field appearance="fill" class="full-width">
+  <mat-label>Status do serviço</mat-label>
+  <mat-select [(ngModel)]="service.status" name="status">
+    <mat-option value="ativo">Ativo</mat-option>
+    <mat-option value="inativo">Inativo</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+        <button 
+          mat-raised-button 
+          color="primary" 
+          class="services-button"
+          (click)="save()"
+        >
+          Salvar Serviço
+        </button>
+
+      </form>
+
+      <p class="services-link">
+        <a routerLink="/services">Voltar</a>
+      </p>
+    </mat-card>
+  </div>
+</div>

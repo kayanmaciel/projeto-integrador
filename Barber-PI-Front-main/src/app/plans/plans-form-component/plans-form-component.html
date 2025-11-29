@@ -1,0 +1,89 @@
+<div class="plans-background">
+  <div class="plans-wave"></div>
+  <div class="plans-wave wave2"></div>
+
+  <div class="plans-container">
+    <mat-card class="plans-card">
+      <h2 class="plans-title">Criar Plano</h2>
+
+      <form>
+
+        <!-- Nome -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Nome do plano</mat-label>
+          <input 
+            matInput 
+            [(ngModel)]="plan.nome" 
+            name="nome"
+            placeholder="Ex: Plano Premium"
+          />
+        </mat-form-field>
+
+        <!-- Descrição (agora input normal) -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Descrição</mat-label>
+          <input
+            matInput
+            placeholder="Descrição do plano"
+            [(ngModel)]="plan.descricao"
+            name="descricao"
+          />
+        </mat-form-field>
+
+        <!-- Linha com 2 colunas -->
+        <div class="two-cols">
+
+          <!-- Preço -->
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Preço promocional</mat-label>
+            <input
+              matInput
+              type="number"
+              [(ngModel)]="plan.precoPromocional"
+              name="precoPromocional"
+              placeholder="Ex: 59.90"
+            />
+          </mat-form-field>
+
+          <!-- Duração -->
+          <mat-form-field appearance="fill" class="half-width">
+            <mat-label>Duração (dias)</mat-label>
+            <input
+              matInput
+              type="number"
+              [(ngModel)]="plan.duracao"
+              name="duracao"
+              placeholder="30"
+            />
+          </mat-form-field>
+
+        </div>
+
+        <!-- Benefícios -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Benefícios (separados por vírgula)</mat-label>
+          <textarea
+            matInput
+            rows="3"
+            [(ngModel)]="plan.beneficios"
+            name="beneficios"
+            placeholder="Corte grátis, Barba grátis..."
+          ></textarea>
+        </mat-form-field>
+
+        <button 
+          mat-raised-button 
+          color="primary" 
+          class="plans-button"
+          (click)="save()"
+        >
+          Salvar Plano
+        </button>
+      </form>
+
+      <p class="plans-link">
+        <a routerLink="/home/">Voltar</a>
+      </p>
+    </mat-card>
+  </div>
+</div>

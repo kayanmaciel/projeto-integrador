@@ -1,0 +1,52 @@
+<div class="plans-wrapper">
+  <h2 class="section-title">
+    escolha seu <span class="highlight">plano ideal</span>
+  </h2>
+  <p class="section-subtitle">
+    assine um plano mensal e garanta seus cortes e barbas com prioridade
+  </p>
+
+  <!-- BOTÃO DE CRIAÇÃO -->
+  <div class="plans-actions">
+    <button mat-raised-button color="accent" routerLink="/plans/new">
+      + Criar novo plano
+    </button>
+  </div>
+
+  <div class="plans-grid">
+  <div *ngFor="let plan of plans" class="plan-card">
+
+    <h3 class="plan-name">{{ plan.nome }}</h3>
+    <p class="plan-description">{{ plan.descricao }}</p>
+
+    <div class="plan-price">
+      <span class="price">R$ {{ plan.precoPromocional }}</span>
+      <small>{{ plan.duracao }} dias</small>
+    </div>
+
+    <ul class="plan-services">
+      <li *ngFor="let b of plan.beneficios?.split(',')">
+        <mat-icon>check_circle</mat-icon>
+        <span>{{ b }}</span>
+      </li>
+    </ul>
+
+    <!-- NOVO BLOCO ESTILIZADO -->
+    <div class="plan-actions">
+      <button mat-stroked-button color="primary" [routerLink]="['/plans/edit', plan.id]">
+        Editar
+      </button>
+
+      <button mat-stroked-button color="warn" (click)="excluirPlano(plan.id!)">
+        Excluir
+      </button>
+    </div>
+
+    <button mat-raised-button class="choose-button" color="primary">
+      escolher plano
+    </button>
+
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,52 @@
+<div class="services-wrapper">
+  <h2 class="section-title">
+    serviços <span class="highlight">avulsos</span>
+  </h2>
+
+  <p class="section-subtitle">
+    Escolha o serviço que quiser e agende seu horário
+  </p>
+
+  <!-- BOTÃO DE CRIAÇÃO -->
+  <div class="services-actions">
+    <button mat-raised-button color="accent" routerLink="/services/new">
+      + Criar novo serviço
+    </button>
+  </div>
+
+  <!-- Caso não tenha serviços -->
+  <div *ngIf="services.length === 0">
+    <h3>Nenhum serviço encontrado</h3>
+  </div>
+
+  <!-- Caso tenha serviços -->
+  <div class="services-grid" *ngIf="services.length > 0">
+    <div *ngFor="let s of services" class="service-card">
+
+      <mat-icon class="service-icon">build</mat-icon>
+
+      <div class="service-info">
+        <h3 class="service-name">{{ s.nome }}</h3>
+        <p class="service-description">{{ s.descricao }}</p>
+        <span class="service-price">R$ {{ s.preco | number:'1.2-2' }}</span>
+      </div>
+
+      <!-- AÇÕES DO CARD -->
+      <div class="service-actions">
+        <button mat-stroked-button color="primary" [routerLink]="['/services/edit', s.id]">
+          Editar
+        </button>
+
+        <button mat-stroked-button color="warn" (click)="excluirServico(s.id!)">
+          Excluir
+        </button>
+      </div>
+
+      <button mat-raised-button class="book-button" color="primary" routerLink="/agenda/agenda">
+        Agendar
+      </button>
+
+    </div>
+  </div>
+
+</div>

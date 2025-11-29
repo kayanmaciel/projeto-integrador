@@ -1,0 +1,150 @@
+.plans-wrapper {
+  text-align: center;
+  padding: 80px 8%;
+  color: #fff;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  color: #6b4eff;
+}
+
+.section-subtitle {
+  color: #ccc;
+  margin-bottom: 60px;
+  font-size: 1.1rem;
+}
+/* Grid dos cards */
+.plans-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+/* Card do plano */
+.plan-card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Lista */
+.plan-services {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.plan-services li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.plan-actions {
+  display: flex;
+  justify-content: center;     /* Centraliza horizontalmente */
+  gap: 12px;                   /* Espaçamento entre os botões */
+  margin: 15px 0 20px 0;       /* Espaço acima e abaixo */
+}
+
+/* Botão escolher plano */
+.choose-button {
+  width: 100%;
+  margin-top: auto;
+}
+
+
+.plan-card {
+  background: #1e293b;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 32px 24px;
+  width: 320px;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.plan-card.highlighted {
+  border-color: #6b4eff;
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(107, 78, 255, 0.3);
+}
+
+.plan-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.plan-description {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.plan-price {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  color: #6b4eff;
+
+  small {
+    color: #aaa;
+    font-size: 0.9rem;
+  }
+}
+.plans-actions {
+  margin: 20px 0;
+  text-align: right;
+}
+
+.plan-services {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #e5e7eb;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+
+    mat-icon {
+      font-size: 20px;
+    }
+  }
+}
+
+.choose-button {
+  width: 100%;
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+@media (max-width: 900px) {
+  .plans-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plan-card {
+    width: 90%;
+  }
+}

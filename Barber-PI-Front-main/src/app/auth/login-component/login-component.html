@@ -1,0 +1,57 @@
+<div class="login-background">
+  <div class="wave"></div>
+  <div class="wave wave2"></div>
+
+  <div class="login-container">
+    <mat-card class="login-card">
+      <h2 class="title">Entrar</h2>
+
+      <form (ngSubmit)="fazerLogin()">
+        
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input 
+            matInput 
+            type="email" 
+            [(ngModel)]="email" 
+            name="email" 
+            required
+            [disabled]="isLoading"
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Senha</mat-label>
+          <input 
+            matInput 
+            type="password" 
+            [(ngModel)]="senha" 
+            name="senha" 
+            required
+            [disabled]="isLoading"
+          >
+        </mat-form-field>
+
+        <div *ngIf="mensagemErro" class="error-message" style="color: red; margin-bottom: 10px; font-size: 0.9em;">
+          {{ mensagemErro }}
+        </div>
+
+        <button 
+          mat-raised-button 
+          color="primary" 
+          class="login-button full-width" 
+          type="submit"
+          [disabled]="isLoading"
+        >
+          {{ isLoading ? 'Entrando...' : 'Entrar' }}
+        </button>
+
+      </form>
+
+      <p class="register-link">
+        Não tem uma conta?
+        <a routerLink="/auth/register">Registre-se</a>
+      </p>
+    </mat-card>
+  </div>
+</div>
