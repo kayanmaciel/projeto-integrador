@@ -16,7 +16,7 @@ export interface Plano {
 })
 export class PlansService {
 
-  private readonly BASE_URL = 'https://probable-computing-machine-g4w7jwxqj4jp276g-8080.app.github.dev//planos';
+  private readonly BASE_URL = 'https://cautious-barnacle-6974q7vgq59jc49v-8080.app.github.dev//planos';
 
   private http = inject(HttpClient);
 

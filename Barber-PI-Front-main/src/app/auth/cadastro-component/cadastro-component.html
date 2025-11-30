@@ -6,31 +6,95 @@
     <mat-card class="login-card">
       <h2 class="title">Criar conta</h2>
 
-      <form>
+      <!-- (ngSubmit) chama a função fazerCadastro() ao dar Enter ou clicar no botão -->
+      <form (ngSubmit)="fazerCadastro()">
+        
+        <!-- Campo Nome -->
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Nome completo</mat-label>
-          <input matInput type="text" placeholder="Digite seu nome completo" />
+          <input 
+            matInput 
+            type="text" 
+            placeholder="Digite seu nome completo" 
+            [(ngModel)]="usuario.nome" 
+            name="nome" 
+            required 
+            [disabled]="isLoading">
         </mat-form-field>
 
+        <!-- Campo Email -->
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Email</mat-label>
-          <input matInput type="email" placeholder="Digite seu email" />
+          <input 
+            matInput 
+            type="email" 
+            placeholder="Digite seu email" 
+            [(ngModel)]="usuario.email" 
+            name="email" 
+            required 
+            [disabled]="isLoading">
         </mat-form-field>
 
+        <!-- Campo Telefone (Adicionado pois existe no seu TS) -->
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Telefone</mat-label>
+          <input 
+            matInput 
+            type="tel" 
+            placeholder="(xx) xxxxx-xxxx" 
+            [(ngModel)]="usuario.telefone" 
+            name="telefone" 
+            [disabled]="isLoading">
+        </mat-form-field>
+
+        <!-- Campo Senha -->
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Senha</mat-label>
-          <input matInput type="password" placeholder="Crie uma senha" />
+          <input 
+            matInput 
+            type="password" 
+            placeholder="Crie uma senha" 
+            [(ngModel)]="usuario.senha" 
+            name="senha" 
+            required 
+            [disabled]="isLoading">
         </mat-form-field>
 
+        <!-- Campo Confirmar Senha -->
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Confirmar senha</mat-label>
-          <input matInput type="password" placeholder="Repita sua senha" />
+          <input 
+            matInput 
+            type="password" 
+            placeholder="Repita sua senha" 
+            [(ngModel)]="confirmarSenha" 
+            name="confirmarSenha" 
+            required 
+            [disabled]="isLoading">
         </mat-form-field>
 
-        <button mat-raised-button color="primary" class="login-button">
-          Registrar
-        
+        <!-- Exibição de Mensagem de Erro -->
+        <div *ngIf="mensagemErro" class="error-message" style="color: #ff6b6b; margin-bottom: 10px; font-size: 0.9em;">
+          {{ mensagemErro }}
+        </div>
+
+        <!-- Botão com Estado de Carregamento -->
+        <button 
+          mat-raised-button 
+          color="primary" 
+          class="login-button full-width" 
+          type="submit"
+          [disabled]="isLoading">
+          
+          <!-- Lógica visual: Se carregando, mostra Spinner/Texto, senão mostra Registrar -->
+          <ng-container *ngIf="isLoading; else textButton">
+            Carregando...
+          </ng-container>
+          <ng-template #textButton>
+            Registrar
+          </ng-template>
         </button>
+
       </form>
 
       <p class="register-link">

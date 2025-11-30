@@ -20,13 +20,13 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class ServicoResource {
 
-    // 1. LISTAR TODOS
+   
     @GET
     public List<Servico> listarTodos() {
         return Servico.listAll(); 
     }
 
-    // 2. BUSCAR POR ID
+ 
     @GET
     @Path("/{id}")
     public Response buscarPorId(@PathParam("id") Long id) {
@@ -37,7 +37,7 @@ public class ServicoResource {
         return Response.ok(servico).build();
     }
 
-    // 3. CRIAR (POST)
+   
     @POST
     @Transactional
     public Response criarServico(Servico servico) {
@@ -46,7 +46,7 @@ public class ServicoResource {
         return Response.created(createdUri).entity(servico).build();
     }
 
-    // 4. ATUALIZAR (PUT)
+    
     @PUT
     @Path("/{id}")
     @Transactional
@@ -57,7 +57,7 @@ public class ServicoResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
-        // Atualiza os dados do serviço
+       
         servicoAntigo.nome = dadosNovos.nome;
         servicoAntigo.descricao = dadosNovos.descricao;
         servicoAntigo.preco = dadosNovos.preco;
@@ -67,7 +67,7 @@ public class ServicoResource {
         return Response.ok(servicoAntigo).build();
     }
 
-    // 5. DELETAR (DELETE)
+ 
     @DELETE
     @Path("/{id}")
     @Transactional

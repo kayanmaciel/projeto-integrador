@@ -1,0 +1,9 @@
+/workspaces/projeto-integrador/back-end-integrador/src/main/java/entidades/Agendamento.java
+/workspaces/projeto-integrador/back-end-integrador/src/main/java/entidades/Plano.java
+/workspaces/projeto-integrador/back-end-integrador/src/main/java/entidades/Servico.java
+/workspaces/projeto-integrador/back-end-integrador/src/main/java/entidades/Usuario.java
+/workspaces/projeto-integrador/back-end-integrador/src/main/java/recursos/AgendamentoResource.java
+/workspaces/projeto-integrador/back-end-integrador/src/main/java/recursos/AuthResource.java
+/workspaces/projeto-integrador/back-end-integrador/src/main/java/recursos/PlanoResource.java
+/workspaces/projeto-integrador/back-end-integrador/src/main/java/recursos/ServicoResource.java
+/workspaces/projeto-integrador/back-end-integrador/src/main/java/recursos/UsuarioResource.java

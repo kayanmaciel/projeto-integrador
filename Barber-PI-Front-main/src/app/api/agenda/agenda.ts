@@ -20,7 +20,7 @@ export interface Agendamento {
 export class AgendamentoService {
 
   private readonly BASE_URL =
-    'https://probable-computing-machine-g4w7jwxqj4jp276g-8080.app.github.dev/agendamentos';
+    'https://cautious-barnacle-6974q7vgq59jc49v-8080.app.github.dev/agendamentos';
 
   private http = inject(HttpClient);
 

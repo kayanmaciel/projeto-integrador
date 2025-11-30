@@ -17,7 +17,7 @@ export interface Servico {
 })
 export class ServicoService {
 
-  private apiUrl = 'https://probable-computing-machine-g4w7jwxqj4jp276g-8080.app.github.dev//servicos';
+  private apiUrl = 'https://cautious-barnacle-6974q7vgq59jc49v-8080.app.github.dev//servicos';
 
   constructor(private http: HttpClient) { }
 
